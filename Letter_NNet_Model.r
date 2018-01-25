@@ -122,8 +122,10 @@ b <- b-step_size*db
 W2 <- W2-step_size*dW2
 b2 <- b2-step_size*db2
 }
+
 return(list(W, b, W2, b2))
 }
+
 nnetPred <- function(X, para = list()){
 W <- para[[1]]
 b <- para[[2]]
@@ -138,13 +140,9 @@ predicted_class <- apply(scores, 1, which.max)
 return(predicted_class)
 }
 
+# print progress and end training accuracy result
 nnet.model <- nnet(X, Y, step_size = 0.4,reg = 0.0002, h=50, niteration = 20000)
 predicted_class <- nnetPred(X, nnet.model)
 
 print(paste('training accuracy:',mean(predicted_class == (y))))
 print("iteration")
-load("~/.RData")
-
-nnet.model <- nnet(X, Y, step_size = 0.4,reg = 0.0002, h=50, niteration = 20000)
-predicted_class <- nnetPred(X, nnet.model)
-print(paste('training accuracy:',mean(predicted_class == (y))))
