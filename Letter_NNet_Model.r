@@ -137,4 +137,3 @@ nnet.model <- nnet(X, Y, step_size = 0.4,reg = 0.0002, h=50, niteration = 20000)
 predicted_class <- nnetPred(X, nnet.model)
 
 print(paste('training accuracy:',mean(predicted_class == (y))))
-print("iteration")
