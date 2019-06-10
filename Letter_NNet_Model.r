@@ -98,14 +98,14 @@ print(paste("iteration", i,': loss', loss))}
 dscores <- probs-Y
 dscores <- dscores/N
 
-# backpropate the gradient to the parameters
+# backpropagate the gradient to the parameters
 dW2 <- t(hidden_layer)%*%dscores
 db2 <- colSums(dscores)
 
-# next backprop into hidden layer
+# backpropagate into hidden layer
 dhidden <- dscores%*%t(W2)
 
-# backprop the ReLU non-linearity
+# backpropagate the ReLU non-linearity layer
 dhidden[hidden_layer <= 0] <- 0
 
 # finally into W,b
