@@ -1,11 +1,3 @@
-View(nnet)
-N<- 200
-D<- 2
-K<- 4
-X<- data.frame()
-y<-data.frame()
-set.seed(308)
-
 library(ggplot2)
 library(caret)
 
